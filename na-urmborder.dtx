@@ -1,0 +1,152 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2026 by NAAM MOHAMED
+% -----------------------------------
+% الأستاذ ناعم محمد - NAAM MOHAMED
+%
+% حزمة na-urmborder لتنسيق الزخارف الرياضية باستخدام خطوط umranda و umrandb.
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{na-urmborder.dtx}
+\documentclass{ltxdoc}
+\usepackage{na-urmborder}
+\usepackage{polyglossia}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage[xetex, colorlinks=true, urlcolor=teal, pdfpagemode=UseNone, pdfstartview=FitH]{hyperref}
+
+% --- إعدادات اللغة العربية ---
+\setmainlanguage[numerals=maghrib,locale=algeria]{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.2]{Amiri} 
+
+% --- تنسيق العناوين ---
+\titleformat{\section}{\color{blue!70!black}\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{teal!70!black}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\begin{document}
+  \DocInput{na-urmborder.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% % --- تصميم عنوان التوثيق ---
+% \begin{center}
+% \begin{tcolorbox}[
+%     enhanced, arc=5pt, boxrule=1.5pt, colframe=teal!80!black, colback=white,
+%     title={\large \textbf{حزمة الزخارف الرياضية \textsf{na-urmborder}}},
+%     center title, fonttitle=\bfseries, drop shadow,
+%     borderline={0.7pt}{2pt}{teal!40!white}
+% ]
+%   \centering
+%   \Large \textbf{دليل الاستخدام والتوثيق البرمجي} \\[0.5em]
+%   \large \textbf{الأستاذ ناعم محمد \textlatin{(NAAM MOHAMED)}} \\[0.3em]
+%   \small \textbf{الإصدار 1.0 --- مايو 2026}
+% \end{tcolorbox}
+% \end{center}
+%
+% \begin{abstract}
+% \color{gray!80!black}
+% توفر هذه الحزمة أدوات تنسيق احترافية لمواضيع الامتحانات والملخصات الرياضية، حيث تعتمد على خطوط \texttt{umranda} و \texttt{umrandb} لإنشاء إطارات هندسية مرنة.
+% \end{abstract}
+%
+% \section{طريقة الاستخدام}
+% لاستخدام الحزمة، قم باستدعائها في الديباجة:
+% \begin{quote}
+% \texttt{\textbackslash usepackage\{na-urmborder\}}
+% \end{quote}
+%
+% \subsection{تفعيل الإطارات باستخدام الأمر \texttt{\textbackslash border}}
+% لتفعيل إطار معين على كامل الصفحة، استخدم الأمر الجديد والمختصر:
+% \begin{quote}
+% \cs{border}\marg{اللون}\marg{اسم\_الزخرفة}
+% \end{quote}
+% مثال: \texttt{\textbackslash border\{blue\}\{\textbackslash borderKA\}}
+%
+% \section{التراخيص}
+% هذه الحزمة ملكية فكرية للأستاذ \textbf{ناعم محمد}. وهي مرخصة تحت رخصة \textbf{LPPL v1.3c}.
+%
+% \StopEventually{}
+%
+%<*package>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{na-urmborder}[2026/05/06 v1.0 Professional Borders by NAAM MOHAMED]
+
+\RequirePackage{background}
+\RequirePackage{niceframe}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+
+% --- تعريف النماذج الزخرفية المعتمدة ---
+
+\newcommand{\borderKA}{%
+\font\borderfont=umranda
+\generalframe{\borderfont\char35}{\borderfont\char35}{\borderfont\char35}
+             {\borderfont\char35}                {\borderfont\char35}
+             {\borderfont\char35}{\borderfont\char35}{\borderfont\char35}}
+
+\newcommand{\borderKB}{%
+\font\borderfont=umrandb
+\generalframe{\borderfont\char113}{\borderfont\char105}{\borderfont\char112}
+             {\borderfont\char106}                 {\borderfont\char104}
+             {\borderfont\char114}{\borderfont\char107}{\borderfont\char115}}
+
+\newcommand{\borderKC}{%
+\font\borderfont=umranda
+\generalframe{\borderfont\char7}{\borderfont\char6}{\borderfont\char5}
+             {\reflectbox{\borderfont\char4}}               {\borderfont\char4}
+             {\borderfont\char1}{\borderfont\char2}{\borderfont\char3}}
+
+\newcommand{\borderKD}{%
+\font\borderfont=umrandb
+\generalframe{\borderfont\char'165}{\borderfont\char'151}{\borderfont\char'164}%
+{\borderfont\char'150}{\borderfont\char'150}%
+{\borderfont\char'166}{\borderfont\char'151}{\borderfont\char'167}}
+
+\newcommand{\borderKE}{%
+\font\borderfont=umranda
+\generalframe{\borderfont\char'136}{\borderfont\char'137}{\borderfont\char'140}
+             {\borderfont\char'145}                  {\borderfont\char'141}
+             {\borderfont\char'144}{\borderfont\char'143}{\borderfont\char'142}}
+
+\newcommand{\borderKF}{%
+\font\borderfont=umranda
+\generalframe{\borderfont\char'136}{\borderfont\char'137}{\borderfont\char'140}
+             {\borderfont\char'145}                  {\borderfont\char'141}
+             {\borderfont\char'144}{\borderfont\char'143}{\borderfont\char'142}}   
+
+\newcommand{\borderKG}{%
+\font\borderfont=umrandb
+\generalframe{\borderfont\char113}{\borderfont\char109}{\borderfont\char112}
+             {\borderfont\char110}                 {\borderfont\char108}
+             {\borderfont\char114}{\borderfont\char111}{\borderfont\char115}}                      
+
+\newcommand{\borderKH}{%
+\font\borderfont=umrandb
+\generalframe{\borderfont\char45}{\borderfont\char1}{\borderfont\char44}
+             {\borderfont\char2}                {\reflectbox{\borderfont\char2}}
+             {\borderfont\char46}{\borderfont\char3}{\borderfont\char47}}                                   
+
+% --- الأمر الجديد لتطبيق الإطار ---
+\newcommand{\border}[2]{%
+\backgroundsetup{
+scale=1, opacity=1, angle=0, color=black,
+contents={%
+\scalebox{3.4}{\color{#1} 
+\hspace{0.3mm}
+\begin{minipage}[\textheight]{.355\textwidth}
+#2
+{\centering \vspace*{2.5cm} \vspace{44.8mm}}
+\end{minipage}}}}}
+
+\backgroundsetup{scale=1, opacity=1, angle=0, contents={}}
+%</package>
+% \Finale
+\endinput
